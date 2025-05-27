@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md Shabaz Alam| Author & Storyteller </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #f8f9fa;
+            --accent: #3498db;
+            --text: #333;
+            --light-text: #7f8c8d;
+            --border: #e0e0e0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+        }
+        
+        body {
+            background-color: #fff;
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--primary);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 0 22px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+        
+        .logo {
+            color: #fff;
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 400;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #fff;
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #a82f61 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        
+        .book-3d-container {
+            perspective: 2000px;
+            margin: 40px 0;
+        }
+        
+        .book-3d {
+            width: 300px;
+            height: 400px;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateY(-20deg);
+            transition: transform 0.5s ease;
+        }
+        
+        .book-3d:hover {
+            transform: rotateY(-10deg);
+        }
+        
+        .book-cover {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #8e44ad;
+            background-image: url('cover 1.png');
+            background-size: cover;
+            background-position: center;
+            transform: translateZ(20px);
+            box-shadow: 5px 5px 20px rgba(0,0,0,0.3);
+            border-radius: 5px 2px 2px 5px;
+        }
+        
+        .book-side {
+            position: absolute;
+            width: 40px;
+            height: 100%;
+            background: linear-gradient(90deg, #7d3c98 0%, #6c3483 100%);
+            transform: rotateY(90deg) translateZ(20px) translateX(20px);
+            border-radius: 0 2px 2px 0;
+        }
+        
+        .book-top {
+            position: absolute;
+            width: 100%;
+            height: 40px;
+            background: linear-gradient(to bottom, #fff 0%, #f1f1f1 100%);
+            transform: rotateX(90deg) translateZ(20px) translateY(-20px);
+            box-shadow: 5px 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .cta-button {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            margin: 10px;
+        }
+        
+        .cta-button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .cta-button i {
+            margin-right: 8px;
+        }
+        
+        /* About Author */
+        .about-author {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .author-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            flex-shrink: 0;
+        }
+        
+        .author-bio h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .author-bio p {
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text);
+        }
+        
+        /* Books Section */
+        .books-section {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 60px;
+            font-weight: 600;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--accent);
+            margin: 15px auto 0;
+        }
+        
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 40px;
+        }
+        
+        .book-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .book-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .book-cover-image {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+        
+        .book-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .book-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .book-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        
+        .book-description {
+            color: var(--light-text);
+            font-size: 14px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+        
+        .purchase-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .purchase-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .purchase-btn i {
+            margin-right: 5px;
+        }
+        
+        .pothi-btn {
+            background-color: #6c5ce7;
+            color: white;
+        }
+        
+        .pothi-btn:hover {
+            background-color: #5649c0;
+        }
+        
+        .kindle-btn {
+            background-color: #f3a847;
+            color: #111;
+        }
+        
+        .kindle-btn:hover {
+            background-color: #e0942e;
+        }
+        
+        .flipkart-btn {
+            background-color: #2874f0;
+            color: white;
+        }
+        
+        .flipkart-btn:hover {
+            background-color: #1a5fd0;
+        }
+        
+        .whatsapp-btn {
+            background-color: #25D366;
+            color: white;
+        }
+        
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+        }
+        
+        /* Reviews Section */
+        .reviews-section {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+        
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .review-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .reviewer-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        
+        .reviewer-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .review-rating {
+            color: #f1c40f;
+        }
+        
+        .review-content {
+            line-height: 1.7;
+            color: var(--text);
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            max-width: 800px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+        
+        .contact-form {
+            background-color: var(--secondary);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: var(--light-text);
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--accent);
+            outline: none;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 60px 20px 30px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links li {
+            margin: 0 15px 10px;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: var(--accent);
+        }
+        
+        .copyright {
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+            margin-top: 20px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .about-author {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .author-image {
+                margin-bottom: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: var(--primary);
+                flex-direction: column;
+                padding: 20px;
+                align-items: center;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .section-title {
+                font-size: 30px;
+            }
+            
+            .contact-form {
+                padding: 20px;
+            }
+            
+            .book-3d {
+                width: 200px;
+                height: 300px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                padding: 80px 20px;
+            }
+            
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .section-title {
+                font-size: 26px;
+            }
+            
+            .books-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">Md Shabaz Alam</div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#books">Books</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Whispers of Distant Love</h1>
+            <p>Newly Released  Novel by Md Shabaz Alam</p>
+            
+            <div class="book-3d-container">
+                <div class="book-3d">
+                    <div class="book-cover"></div>
+                    <div class="book-side"></div>
+                    <div class="book-top"></div>
+                </div>
+            </div>
+            
+            <div>
+                <a href="#books" class="cta-button">
+                    <i class="fas fa-book-open"></i> View Books
+                </a>
+                <a href="https://wa.me/9778172591?text=Hello%20Shabaz,%20I'm%20interested%20in%20your%20book%20'Whispers%20of%20Distant%20Love'" class="cta-button">
+                    <i class="fab fa-whatsapp"></i> Order Through WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Author -->
+    <section id="about" class="about-author">
+        <img src="author.jpg" alt="Md Shabaz Alam" class="author-image">
+        <div class="author-bio">
+            <h2>About the Author</h2>
+            <p>Md Shabaz Alamis a passionate poet and writer whose words dance between the realms of love, longing, and self-discovery. Born with an innate ability to capture the essence of human emotions, Shabaz's poetry resonates with readers across generations.</p>
+            <p>His debut collection, "Whispers of Distant Love," has touched thousands of hearts with its raw honesty and lyrical beauty. When he's not writing, Shabaz can be found immersed in nature, drawing inspiration from the world around him.</p>
+            <p>Shabaz believes that poetry is the language of the soul, and through his work, he aims to bridge the distance between hearts separated by time and space.</p>
+        </div>
+    </section>
+
+    <!-- Books Section -->
+    <section id="books" class="books-section">
+        <h2 class="section-title">Published Works</h2>
+        <div class="books-grid">
+            <!-- Book 1 -->
+            <div class="book-card">
+                <img src="Cover 1.png" alt="Whispers of Distant Love" class="book-cover-image">
+                <div class="book-info">
+                    <h3 class="book-title">Whispers of Distant Love</h3>
+                    <div class="book-price">₹299</div>
+                    <p class="book-description">A collection of 50 heartfelt poems exploring themes of love, separation, and the beauty of human connection across distances. This debut work establishes Md Shabaz Alamas a fresh voice in contemporary poetry.</p>
+                    <div class="purchase-links">
+                        <a href="https://store.pothi.com/book/mohammad-shabaz-alam-whispers-distant-love/" class="purchase-btn pothi-btn">
+                            <i class="fas fa-book"></i> Pothi
+                        </a>
+                        <a href="https://www.amazon.in/dp/B0F913H69R" class="purchase-btn kindle-btn">
+                            <i class="fab fa-amazon"></i> Kindle
+                        </a>
+                        <a href="https://wa.me/9778172591?text=Hello%20Shabaz,%20I'm%20interested%20in%20your%20book%20'Whispers%20of%20Distant%20Love'" class="purchase-btn whatsapp-btn">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Book 2 -->
+            <div class="book-card">
+                <img src="kahaniya.jpg" alt="Kahaniya" class="book-cover-image">
+                <div class="book-info">
+                    <h3 class="book-title">Kahaniya</h3>
+                    <div class="book-price">₹127</div>
+                    <p class="book-description">Shabaz Alam's highly anticipated second collection of poetry, delving deeper into the mysteries of human connection and the unseen threads that bind us all.</p>
+                    <div class="purchase-links">
+                        <a href="https://dl.flipkart.com/s/1SxLUdNNNN" class="purchase-btn flipkart-btn">
+                            <i class="fas fa-shopping-cart"></i> Flipkart
+                        </a>
+                        <a href="https://wa.me/9778172591?text=Hello%20Shabaz,%20I'm%20interested%20in%20your%20book%20'Whispers%20of%20Distant%20Love'" class="purchase-btn whatsapp-btn">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Book 3 -->
+            <div class="book-card">
+                <img src="alfaaz.jpg" alt="Shairana Alfaaz" class="book-cover-image">
+                <div class="book-info">
+                    <h3 class="book-title">Shairana Alfaaz</h3>
+                    <div class="book-price">₹150</div>
+                    <p class="book-description">A poetic journey through emotions and expressions, showcasing Shabaz Alam's mastery of words and rhythm.</p>
+                    <div class="purchase-links">
+                        <a href="https://dl.flipkart.com/s/GmokzvuuuN" class="purchase-btn flipkart-btn">
+                            <i class="fas fa-shopping-cart"></i> Flipkart
+                        </a>
+                        <a href="https://wa.me/9778172591?text=Hello%20Shabaz,%20I'm%20interested%20in%20your%20book%20'Whispers%20of%20Distant%20Love'" class="purchase-btn whatsapp-btn">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Book 4 (Example of how to add more books) -->
+            <!--
+            <div class="book-card">
+                <img src="book4.jpg" alt="New Book" class="book-cover-image">
+                <div class="book-info">
+                    <h3 class="book-title">New Book Title</h3>
+                    <div class="book-price">₹199</div>
+                    <p class="book-description">Description of the new book goes here.</p>
+                    <div class="purchase-links">
+                        <a href="#" class="purchase-btn flipkart-btn">
+                            <i class="fas fa-shopping-cart"></i> Flipkart
+                        </a>
+                        <a href="#" class="purchase-btn whatsapp-btn">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+            -->
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="reviews-section">
+        <h2 class="section-title">What Readers Say</h2>
+        <div class="reviews-grid">
+            <!-- Review 1 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Reviewer" class="reviewer-image">
+                    <div>
+                        <div class="reviewer-name">Sharma</div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-content">
+                    "Whispers of Distant Love touched my soul in ways I didn't expect. Each poem is a journey, and Shabaz's words have the power to heal. I've bought copies for all my friends!"
+                </div>
+            </div>
+            
+            <!-- Review 2 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Reviewer" class="reviewer-image">
+                    <div>
+                        <div class="reviewer-name">Mehta</div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-content">
+                    "As someone who doesn't usually read poetry, I was surprised by how much I connected with Shabaz's work. The poems are accessible yet profound, simple yet deeply moving. A must-read!"
+                </div>
+            </div>
+            
+            <!-- Review 3 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Reviewer" class="reviewer-image">
+                    <div>
+                        <div class="reviewer-name">Patel</div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-content">
+                    "I keep this book by my bedside and read a poem every night. Shabaz has a magical way with words - each line feels like it was written just for me. Can't wait for his next collection!"
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2 class="section-title">Get In Touch</h2>
+        <form class="contact-form" id="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <select id="subject" name="subject">
+                    <option value="general">General Inquiry</option>
+                    <option value="book">Book Inquiry</option>
+                    <option value="event">Speaking Engagement</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Md Shabaz Alam</div>
+            <ul class="footer-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#books">Books</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+            </ul>
+            <div class="social-links">
+                <a href="https://www.facebook.com/alamrocking786/" class="social-link" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/md.shabazalam01?igsh=YzF0NWM4cXYyNzd0" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.threads.net/@md.shabazalam01" class="social-link" target="_blank"><i class="fas fa-book"></i></a>
+                <a href="https://wa.me/9778172591" class="social-link" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Shabaz Alam. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            const isOpen = navLinks.style.display === 'flex';
+            navLinks.style.display = isOpen ? 'none' : 'flex';
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (window.innerWidth <= 768) {
+                        navLinks.style.display = 'none';
+                    }
+                }
+            });
+        });
+        
+        // Form submission
+        const contactForm = document.getElementById('contact-form');
+        
+        if(contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const submitBtn = this.querySelector('.submit-btn');
+                const originalBtnText = submitBtn.textContent;
+                
+                // Show loading state
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+                
+                // Submit to Formspree
+                fetch(this.action, {
+                    method: 'POST',
+                    body: new FormData(this),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        alert('Thank you! Your message has been sent successfully.');
+                        this.reset();
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                })
+                .catch(error => {
+                    alert('There was an error sending your message. Please try again later.');
+                    console.error('Error:', error);
+                })
+                .finally(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalBtnText;
+                });
+            });
+        }
+    </script>
+</body>
+</html>
